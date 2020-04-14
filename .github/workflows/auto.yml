@@ -13,7 +13,6 @@ on:
 
 jobs:
   build-and-push:
-    if: github.actor == github.event.repository.owner.login
     name: (Re)Build Docker Image
     runs-on: ubuntu-latest
     steps:
