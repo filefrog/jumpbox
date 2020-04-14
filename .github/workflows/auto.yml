@@ -2,11 +2,12 @@
 # structurally has changed in the Dockerfile, to get
 # the latest virus definitions from upstream.
 
-name: Virus DB Update
+name: Rebuild the Docker Image
 
 on:
   schedule:
-    - cron: '45 23 * * *'
+    - cron: '25 * * * *'
+      #- cron: '45 23 * * *'
 
 jobs:
   build-and-push:
