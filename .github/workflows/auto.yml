@@ -6,14 +6,14 @@ name: Rebuild the Docker Image
 
 on:
   watch:
-    - types: [started]
-      if: github.actor == github.event.repository.owner.login
+    types: [started]
   schedule:
     - cron: '25 * * * *'
       #- cron: '45 23 * * *'
 
 jobs:
   build-and-push:
+    if: github.actor == github.event.repository.owner.login
     name: (Re)Build Docker Image
     runs-on: ubuntu-latest
     steps:
