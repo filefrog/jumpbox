@@ -5,6 +5,9 @@
 name: Rebuild the Docker Image
 
 on:
+  watch:
+    - types: [started]
+      if: github.actor == github.event.repository.owner.login
   schedule:
     - cron: '25 * * * *'
       #- cron: '45 23 * * *'
