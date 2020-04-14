@@ -5,11 +5,10 @@
 name: Rebuild the Docker Image
 
 on:
-  watch:
-    types: [started]
+  #watch:
+  #  types: [started]
   schedule:
-    - cron: '25 * * * *'
-      #- cron: '45 23 * * *'
+    - cron: '45 23 * * *'
 
 jobs:
   build-and-push:
