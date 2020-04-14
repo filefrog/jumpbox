@@ -16,9 +16,11 @@ jobs:
     name: (Re)Build Docker Image
     runs-on: ubuntu-latest
     steps:
-      - uses: docker/build-push-action@v1
-        with:
-          username:   ${{ secrets.DOCKER_USERNAME }}
-          password:   ${{ secrets.DOCKER_PASSWORD }}
-          repository: filefrog/jumpbox
-          tags:       latest
+      - uses: actions/checkout@v2
+      - name: docker build && push
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo $env:DOCKER_SECRET | docker login --username $env:DOCKER_USERNAME --password-stdin
+          make latest push
