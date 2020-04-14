@@ -1,0 +1,21 @@
+# Regularly rebuild the Docker image, even if nothing
+# structurally has changed in the Dockerfile, to get
+# the latest virus definitions from upstream.
+
+name: Virus DB Update
+
+on:
+  schedule:
+    - cron: '45 23 * * *'
+
+jobs:
+  build-and-push:
+    name: (Re)Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/build-push-action@v1
+        with:
+          username:   ${{ secrets.DOCKER_USERNAME }}
+          password:   ${{ secrets.DOCKER_PASSWORD }}
+          repository: filefrog/jumpbox
+          tags:       latest
