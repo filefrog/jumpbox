@@ -22,5 +22,6 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
+          echo "logging into Docker Hub as $env:DOCKER_USERNAME ..."
           echo -n $env:DOCKER_PASSWORD | docker login --username $env:DOCKER_USERNAME --password-stdin
           make latest push
