@@ -10,13 +10,13 @@ latest:
 	  --build-arg bosh_version="$(shell ./latest bosh)" \
 	  --build-arg credhub_version="$(shell ./latest credhub)" \
 	  --build-arg fly_version="$(shell ./latest fly)" \
-	  --build-arg genesis_version="$(shell ./latest genesis)" \
 	  --build-arg kubectl_version="$(shell ./latest kubectl)" \
 	  --build-arg jq_version="$(shell ./latest jq)" \
 	  --build-arg safe_version="$(shell ./latest safe)" \
 	  --build-arg spruce_version="$(shell ./latest spruce)" \
 	  --build-arg terraform_version="$(shell ./latest terraform)" \
 	  --build-arg vault_version="$(shell ./latest vault)" \
+	  --build-arg genesis_version="$(shell ./latest genesis)" \
 	  . -t $(IMAGE):$(TAG)
 
 build:

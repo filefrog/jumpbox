@@ -14,13 +14,13 @@ ARG bosh_version=6.0.0
 ARG cf_version=6.46.0
 ARG credhub_version=2.5.2
 ARG fly_version=5.4.1
-ARG genesis_version=2.6.17
 ARG jq_version=1.6
 ARG kubectl_version=1.15.2
 ARG safe_version=1.3.0
 ARG spruce_version=1.22.0
 ARG terraform_version=0.12.6
 ARG vault_version=1.2.1
+ARG genesis_version=2.6.17
 
 RUN apt-get update \
  && apt-get install -y \
@@ -68,11 +68,6 @@ RUN apt-get update \
  &&   rm -f fly.tar.gz \
  &&   /usr/bin/fly -v \
  \
- && echo "Installing 'genesis' ${genesis_version}" \
- &&   curl -sLo /usr/bin/genesis https://github.com/genesis-community/genesis/releases/download/v${genesis_version}/genesis \
- &&   chmod 0755 /usr/bin/genesis \
- &&   /usr/bin/genesis -v \
- \
  && echo "Installing 'jq' ${jq_version}" \
  &&   curl -sLo /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64 \
  &&   chmod 0755 /usr/bin/jq \
@@ -108,5 +103,10 @@ RUN apt-get update \
  &&   chmod 0755 /usr/bin/vault \
  &&   rm vault.zip \
  &&   /usr/bin/vault -v \
+ \
+ && echo "Installing 'genesis' ${genesis_version}" \
+ &&   curl -sLo /usr/bin/genesis https://github.com/genesis-community/genesis/releases/download/v${genesis_version}/genesis \
+ &&   chmod 0755 /usr/bin/genesis \
+ &&   /usr/bin/genesis -v \
  \
  && echo "DONE"
