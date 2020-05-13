@@ -1,5 +1,5 @@
-filefrog/clamav
-===============
+filefrog/jumpbox
+================
 
 This image wraps up a ton of utilities and CLI tools that I find
 to be useful / required for working in my current software stack,
