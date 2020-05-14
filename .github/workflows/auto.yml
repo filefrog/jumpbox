@@ -5,6 +5,8 @@
 name: Rebuild the Docker Image
 
 on:
+  push:
+    branches: [master]
   #watch:
   #  types: [started]
   schedule:
