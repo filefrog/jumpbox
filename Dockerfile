@@ -9,18 +9,18 @@ LABEL maintainer="James Hunt <images@huntprod.com>" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0"
 
-ARG bbr_version=1.5.1
-ARG bosh_version=6.0.0
-ARG cf_version=6.46.0
-ARG credhub_version=2.5.2
-ARG fly_version=5.4.1
-ARG jq_version=1.6
-ARG kubectl_version=1.15.2
-ARG safe_version=1.3.0
-ARG spruce_version=1.22.0
-ARG terraform_version=0.12.6
-ARG vault_version=1.2.1
-ARG genesis_version=2.6.17
+ARG bbr_version
+ARG bosh_version
+ARG cf_version
+ARG credhub_version
+ARG fly_version
+ARG jq_version
+ARG kubectl_version
+ARG safe_version
+ARG spruce_version
+ARG terraform_version
+ARG vault_version
+ARG genesis_version
 
 RUN apt-get update \
  && apt-get install -y \
