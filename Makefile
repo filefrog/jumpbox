@@ -19,13 +19,7 @@ latest:
 	  --build-arg genesis_version="$(shell ./latest genesis)" \
 	  . -t $(IMAGE):$(TAG)
 
-build:
-	docker build \
-	  --build-arg BUILD_DATE="$(shell date -u --iso-8601)" \
-	  --build-arg VCS_REF="$(shell git rev-parse --short HEAD)" \
-	  . -t $(IMAGE):$(TAG)
-
-push: build
+push:
 	docker push $(IMAGE):$(TAG)
 
-.PHONY: latest build push
+.PHONY: latest push
