@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jumpbox
+spec:
+  selector:
+    matchLabels:
+      jumpbox: jumpbox
+  template:
+    metadata:
+      labels:
+        jumpbox: jumpbox
+    spec:
+      containers:
+        - name: jumpbox
+          image: filefrog/jumpbox
+          imagePullPolicy: Always
+
+# exec into it with
+#    `kubectl exec $(kubectl get -o jsonpath='{.items[*].metadata.name}' pod -l jumpbox=jumpbox) /bin/bash`
