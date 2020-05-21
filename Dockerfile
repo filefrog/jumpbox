@@ -1,3 +1,12 @@
+FROM ubuntu:18.04 AS stage1
+
+RUN apt-get update \
+ && apt-get install -y build-essential
+
+WORKDIR /src
+COPY pause.c pause.c
+RUN gcc -static pause.c -o /pause
+
 FROM ubuntu:18.04
 
 ARG BUILD_DATE
@@ -8,6 +17,9 @@ LABEL maintainer="James Hunt <images@huntprod.com>" \
       org.label-schema.vcs-url="https://github.com/filefrog/jumpbox.git" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0"
+
+COPY --from=stage1 /pause /pause
+CMD ["/pause"]
 
 ARG bbr_version
 ARG bosh_version
