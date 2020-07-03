@@ -35,14 +35,22 @@ ARG vault_version
 ARG genesis_version
 
 RUN apt-get update \
- && apt-get install -y \
+ && DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y \
       curl wget \
+      vim-nox nano \
+      build-essential \
+      iproute2 iputils-ping iputils-tracepath dnsutils net-tools \
+      nmap mtr tcpdump ipgrab tshark iptraf-ng \
+      nmap mtr tcpdump ipgrab tshark iptraf-ng \
+      netcat netrw cryptcat \
+      rsync \
       git \
       tmux tmate screen \
       tree file \
-      vim \
       bzip2 zip unzip \
       lsof \
+      htop \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  \
