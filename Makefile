@@ -17,6 +17,11 @@ latest:
 	  --build-arg terraform_version="$(shell ./latest terraform)" \
 	  --build-arg vault_version="$(shell ./latest vault)" \
 	  --build-arg genesis_version="$(shell ./latest genesis)" \
+	  --build-arg s3_version="$(shell ./latest s3)" \
+	  --build-arg osb_version="$(shell ./latest osb)" \
+	  --build-arg boss_version="$(shell ./latest boss)" \
+	  --build-arg gotcha_version="$(shell ./latest gotcha)" \
+	  --build-arg shield_version="$(shell ./latest shield)" \
 	  . -t $(IMAGE):$(TAG)
 
 push:

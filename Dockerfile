@@ -33,6 +33,11 @@ ARG spruce_version
 ARG terraform_version
 ARG vault_version
 ARG genesis_version
+ARG s3_version
+ARG osb_version
+ARG boss_version
+ARG gotcha_version
+ARG shield_version
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
@@ -128,5 +133,34 @@ RUN apt-get update \
  &&   curl -sLo /usr/bin/genesis https://github.com/genesis-community/genesis/releases/download/v${genesis_version}/genesis \
  &&   chmod 0755 /usr/bin/genesis \
  &&   /usr/bin/genesis -v \
+ \
+ && echo "Installing 'botherhub'" \
+ &&   curl -sLo /usr/bin/botherhub https://raw.githubusercontent.com/jhunt/botherhub/master/botherhub \
+ &&   chmod 0755 /usr/bin/botherhub \
+ \
+ && echo "Installing 's3' ${s3_version}" \
+ &&   curl -sLo /usr/bin/s3 https://github.com/jhunt/s3/releases/download/v${s3_version}/s3-linux-amd64 \
+ &&   chmod 0755 /usr/bin/s3 \
+ &&   /usr/bin/s3 -v \
+ \
+ && echo "Installing 'osb' ${osb_version}" \
+ &&   curl -sLo /usr/bin/osb https://github.com/jhunt/osb/releases/download/v${osb_version}/osb-linux-amd64 \
+ &&   chmod 0755 /usr/bin/osb \
+ &&   /usr/bin/osb -v \
+ \
+ && echo "Installing 'boss' ${boss_version}" \
+ &&   curl -sLo /usr/bin/boss https://github.com/jhunt/boss/releases/download/v${boss_version}/boss-linux-amd64 \
+ &&   chmod 0755 /usr/bin/boss \
+ &&   /usr/bin/boss -v \
+ \
+ && echo "Installing 'gotcha' ${gotcha_version}" \
+ &&   curl -sLo /usr/bin/gotcha https://github.com/starkandwayne/gotcha/releases/download/v${gotcha_version}/gotcha-linux-amd64 \
+ &&   chmod 0755 /usr/bin/gotcha \
+ &&   /usr/bin/gotcha -v \
+ \
+ && echo "Installing 'shield' ${shield_version}" \
+ &&   curl -sLo /usr/bin/shield https://github.com/shieldproject/shield/releases/download/v${shield_version}/shield-linux-amd64 \
+ &&   chmod 0755 /usr/bin/shield \
+ &&   /usr/bin/shield -v \
  \
  && echo "DONE"
