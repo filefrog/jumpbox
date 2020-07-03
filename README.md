@@ -17,7 +17,22 @@ To run this in your local Docker daemon:
 
     docker run --rm -it filefrog/jumpbox /bin/bash
 
-This will give you a shell.
+This will give you a shell.  Beware, however, that as soon as you
+exit, the container will evaporate, and your local filesystem
+changes will be lost forever.
+
+
+Running it on Kubernetes
+------------------------
+
+To run this in Kubernetes:
+
+    kubectl apply -f https://raw.githubusercontent.com/filefrog/jumpbox/master/k8s/jumpbox.yml
+    kubectl exec -it jumpbox /bin/bash
+
+You can now exit out of the shell created by your `kubectl exec`
+command, and re-connect later.  Run tmux or screen, and you can
+keep your session going **between** execs!
 
 
 Building (and Publishing) to Docker Hub
@@ -39,7 +54,7 @@ If you want to tag it to your own Dockerhub username:
 By default, the image is tagged `latest`.  You can supply your own
 tag via the `TAG` environment variable:
 
-   IMAGE=... TAG=$(date +%Y%m%d%H%M%S) make build push
+    IMAGE=... TAG=$(date +%Y%m%d%H%M%S) make build push
 
 Happy Hacking!
 

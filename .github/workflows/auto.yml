@@ -25,4 +25,4 @@ jobs:
         run: |
           echo "logging into Docker Hub as $DOCKER_USERNAME ..."
           echo -n $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
-          make latest push
+          make ci

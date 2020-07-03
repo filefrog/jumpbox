@@ -27,4 +27,9 @@ latest:
 push:
 	docker push $(IMAGE):$(TAG)
 
-.PHONY: latest push
+ci: latest
+	docker push $(IMAGE):$(TAG)
+	docker build . -f Dockerfile.jhunt -t $(IMAGE):jhunt
+	docker push $(IMAGE):jhunt
+
+.PHONY: latest push latest-jhunt push-jhunt

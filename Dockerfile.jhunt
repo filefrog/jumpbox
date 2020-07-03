@@ -1,0 +1,9 @@
+FROM filefrog/jumpbox:latest
+MAINTAINER James Hunt <james@niftylogic.com>
+
+RUN cd /root \
+ && git clone https://github.com/jhunt/env \
+ && cd /root/env \
+ && IAMJAMESHUNT=yes ./install
+
+ENV SHELL=/bin/bash

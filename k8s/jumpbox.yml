@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jumpbox
+spec:
+  containers:
+    - name: jumpbox
+      image: filefrog/jumpbox
+      imagePullPolicy: Always
