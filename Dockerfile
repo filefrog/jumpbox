@@ -18,8 +18,8 @@ LABEL maintainer="James Hunt <images@huntprod.com>" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0"
 
-COPY --from=stage1 /pause /pause
-CMD ["/pause"]
+COPY --from=stage1 /pause /usr/bin/pause
+CMD [pause]
 
 ARG bbr_version
 ARG bosh_version
