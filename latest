@@ -35,12 +35,12 @@ bosh)        from_github cloudfoundry/bosh-cli ;;
 credhub)     from_github cloudfoundry-incubator/credhub-cli ;;
 fly)         from_github concourse/concourse ;;
 genesis)     from_github genesis-community/$1 ;;
-kubectl)     from_github kubernetes/kubernetes ;;
-safe|gotcha) from_github starkandwayne/$1 ;;
-s3|osb|boss) from_github jhunt/$1 ;;
-spruce)      from_github geofffranks/$1 ;;
 jq)          from_github stedolan/$1 | sed -e 's/^jq-//' ;;
+kubectl)     from_github kubernetes/kubernetes ;;
+s3|osb|boss) from_github jhunt/$1 ;;
+safe|gotcha) from_github starkandwayne/$1 ;;
 shield)      from_github shieldproject/$1 ;;
+spruce)      from_github geofffranks/$1 ;;
 
 vault|terraform) from_hashicorp $1 ;;
 

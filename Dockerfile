@@ -23,21 +23,21 @@ CMD ["/pause"]
 
 ARG bbr_version
 ARG bosh_version
+ARG boss_version
 ARG cf_version
 ARG credhub_version
 ARG fly_version
+ARG genesis_version
+ARG gotcha_version
 ARG jq_version
 ARG kubectl_version
+ARG osb_version
+ARG s3_version
 ARG safe_version
+ARG shield_version
 ARG spruce_version
 ARG terraform_version
 ARG vault_version
-ARG genesis_version
-ARG s3_version
-ARG osb_version
-ARG boss_version
-ARG gotcha_version
-ARG shield_version
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
